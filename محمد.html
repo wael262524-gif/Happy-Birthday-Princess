@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Birthday Surprise ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #fff0f5;
+    color: #71364f;
+    overflow-x: hidden;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+#login {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffd5e5, #fff0f5, #f9c5db);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-box {
+    background: rgba(255,255,255,.85);
+    padding: 40px 25px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 390px;
+    box-shadow: 0 15px 45px #d875a344;
+    animation: appear 1s ease;
+}
+
+.gift {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: float 2s infinite ease-in-out;
+}
+
+h1 {
+    color: #c34d80;
+    margin-bottom: 15px;
+}
+
+.login-box p {
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f3b1cd;
+    border-radius: 15px;
+    outline: none;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+button {
+    border: none;
+    background: linear-gradient(45deg, #d84e89, #f28db5);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+#error {
+    color: #d32f63;
+    margin-top: 12px;
+}
+
+#main {
+    display: none;
+    animation: appear 1.5s ease;
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(135deg, #ffe0ed, #fff5f8, #f9c5db);
+}
+
+.hero h1 {
+    font-size: clamp(30px, 7vw, 55px);
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 19px;
+    line-height: 2;
+    max-width: 600px;
+}
+
+.heart {
+    font-size: 70px;
+    animation: heartbeat 1.4s infinite;
+}
+
+section {
+    padding: 65px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.message {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    line-height: 2.3;
+    font-size: 18px;
+    box-shadow: 0 8px 30px #d875a322;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 950px;
+    margin: auto;
+}
+
+.photo {
+    background: white;
+    padding: 10px 10px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px #a84d7622;
+    transform: rotate(-2deg);
+    transition: .4s;
+}
+
+.photo:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo:hover {
+    transform: rotate(0) scale(1.05);
+}
+
+.photo img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.photo p {
+    margin-top: 12px;
+    color: #c34d80;
+}
+
+.special {
+    background: linear-gradient(135deg, #f9c5db, #ffeaf2);
+}
+
+.final-message {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    border-radius: 25px;
+    padding: 35px 20px;
+    line-height: 2.3;
+}
+
+footer {
+    padding: 30px 15px;
+    background: #c34d80;
+    color: white;
+    text-align: center;
+}
+
+#surprise {
+    display: none;
+    margin-top: 25px;
+    font-size: 20px;
+    animation: appear 1s ease;
+}
+
+.float-heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: rise 5s linear forwards;
+    z-index: 10;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.15); }
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:500px) {
+    section { padding: 45px 15px; }
+    .message { padding: 22px; font-size: 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- شاشة كلمة السر -->
+<div id="login">
+    <div class="login-box">
+        <div class="gift">🎁</div>
+        <h1>عندك مفاجأة! ❤️</h1>
+        <p>
+            فيه حاجة صغيرة مستنياكي هنا...
+            بس الأول لازم تدخلي كلمة السر 💗
+        </p>
+
+        <input type="password" id="password"
+        placeholder="اكتبي كلمة السر">
+
+        <button onclick="openGift()">افتحي المفاجأة ❤️</button>
+
+        <p id="error"></p>
+    </div>
+</div>
+
+<!-- محتوى الهدية -->
+<div id="main">
+
+    <div class="hero">
+        <div class="heart">💗</div>
+        <h1>Happy Birthday Princess 🎂</h1>
+        <p>
+            كل سنة وإنتِ أجمل حكاية،
+            وكل سنة وضحكتك منورة الدنيا،
+            النهارده يوم مميز لأن فيه حد مميز اتولد ❤️
+        </p>
+        <br>
+        <button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+            شوفي مفاجأتك 💌
+        </button>
+    </div>
+
+    <section>
+        <h2 class="section-title">رسالة مخصوص ليكي 💌</h2>
+
+        <div class="message">
+            في يوم زي ده اتولدت واحدة تستاهل كل حاجة حلوة في الدنيا.
+
+            <br><br>
+
+            يمكن الكلام مهما كان كتير مش هيقدر يوصف قد إيه وجودك
+            بيضيف للحياة جمال وفرحة.
+
+            <br><br>
+
+            أتمنى كل أيامك تكون مليانة ضحك ونجاح وراحة بال،
+            وتفضلي دايمًا محاطة بكل الناس اللي بتحبك.
+
+            <br><br>
+
+            كل سنة وإنتِ طيبة يا Princess،
+            وعقبال سنين كتير كلها سعادة وتحقيق أحلام ❤️
+        </div>
+    </section>
+
+    <section id="memories">
+        <h2 class="section-title">شوية ذكريات حلوة 📸</h2>
+
+        <div class="gallery">
+            <div class="photo">
+                <img src="b23d806245712364a1e63df8f88209dd.jpg" alt="ذكرى جميلة">
+                <p>ذكرى جميلة ❤️</p>
+            </div>
+
+            <div class="photo">
+                <img src="images (6).jpg" alt="لحظة مميزة">
+                <p>لحظة مميزة 🌸</p>
+            </div>
+
+            <div class="photo">
+                <img src="images (6).jpg" alt="أحلى صورة">
+                <p>أحلى ابتسامة 💗</p>
+            </div>
+
+            <div class="photo">
+                <img src="dd753d39759c8f36841d60278433bc70.jpg" alt="ذكرى">
+                <p>حكاية جميلة ✨</p>
+            </div>
+
+            <div class="photo">
+                <img src="4f8a009fe5d99d36a5024545407a9084.jpg" alt="صورة خاصة">
+                <p>لسه في ذكريات كتير 🎀</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="special">
+        <h2 class="section-title">عندي ليكي مفاجأة تانية 🎀</h2>
+
+        <div class="final-message">
+            <p>
+                عايزة تعرفي إيه أحلى حاجة في يومك؟
+                إنك تفتكري دايمًا إنك تستاهلي الفرح،
+                وإن كل سنة جديدة في عمرك تكون بداية لحاجات أجمل.
+
+                <br><br>
+
+                أتمنى أمنياتك كلها تتحقق،
+                وتعيشي أيام شبه قلبك الحلو.
+
+                <br><br>
+
+                Happy Birthday Once Again! ❤️
+            </p>
+
+            <br>
+
+            <button onclick="showSurprise()">
+                اضغطي هنا للمفاجأة الأخيرة 🎁
+            </button>
+
+            <div id="surprise">
+                🎂 كل سنة وإنتِ طيبة يا Princess
+                <br>
+                وعقبال مليون سنة كلها فرحة وحب ❤️
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Made with ❤️ just for you
+        <br><br>
+        A little gift from GiftLink 🎁
+    </footer>
+
+</div>
+
+<!-- الأغنية -->
+<audio id="music" src="music.mp3" loop></audio>
+
+<script>
+
+function openGift() {
+
+    const correctPassword = "Birthday2026";
+    const enteredPassword = document.getElementById("password").value;
+
+    if (enteredPassword === correctPassword) {
+
+        document.getElementById("login").style.display = "none";
+        document.getElementById("main").style.display = "block";
+
+        const music = document.getElementById("music");
+
+        music.play().catch(() => {
+            alert("اضغطي على الصفحة لتشغيل الأغنية 🎵");
+        });
+
+        startHearts();
+
+        window.scrollTo(0, 0);
+
+    } else {
+
+        document.getElementById("error").innerText =
+        "الباسورد مش صح، جربي تاني ❤️";
+
+    }
+
+}
+
+function showSurprise() {
+
+    document.getElementById("surprise").style.display = "block";
+
+}
+
+function startHearts() {
+
+    setInterval(() => {
+
+        const heart = document.createElement("div");
+
+        heart.className = "float-heart";
+        heart.innerHTML = ["❤️","💗","💕","🌸","✨"][
+            Math.floor(Math.random() * 5)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+
+    }, 500);
+
+}
+
+document.getElementById("password").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        openGift();
+    }
+});
+
+</script>
+
+</body>
+</html>
